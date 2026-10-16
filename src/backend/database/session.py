@@ -11,9 +11,9 @@ if not DATABASE_URL:
     raise RuntimeError("URL de base de datos no encontrada")
 
 if DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL.replace("postgres://", "postgres+psycopg://", 1)
+    DATABASE_URL.replace("postgres://", "postgressql+psycopg://", 1)
     
-elif DATABASE_URL.startswith("postgresql://"):
+if DATABASE_URL.startswith("postgresql://"):
     DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1)
 
 engine = create_engine(DATABASE_URL)
